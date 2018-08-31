@@ -10,7 +10,7 @@ var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var env = config.lib.env
 
 baseWebpackConfig.entry = {
-  'vue-min': './src/lib.js'
+  'mina-vue': './src/lib.js'
 }
 
 var webpackConfig = merge(baseWebpackConfig, {

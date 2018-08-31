@@ -10,7 +10,7 @@ function resolve (dir) {
 module.exports = {
   entry: {
     docs: './src/docs.js',
-    ['vue-min']: './src/lib.js'
+    ['mina-vue']: './src/lib.js'
   },
   output: {
     path: config.build.assetsRoot,
