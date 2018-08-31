@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <StencilCover v-if="cover === 'stencil'" title="vue min" :theme="theme">
+    <StencilCover v-if="cover === 'stencil'" :title="title" :theme="theme">
       <template slot="subTitle">
         <h4>a minimal ui library by colin mcneil</h4>
       </template>
@@ -22,7 +22,7 @@
       </template>
     </StencilCover>
 
-    <PeekCover v-if="cover === 'peek'" title="vue min" :theme="theme">
+    <PeekCover v-if="cover === 'peek'" :title="title" :theme="theme">
       <template slot="subHeader">
         <h4>a minimal ui library by colin mcneil</h4>
       </template>
@@ -33,7 +33,7 @@
         <h4 @click="pickerShown=true">Select Color</h4>
       </template>
     </PeekCover>
-    <RepelCover v-if="cover === 'repel'" title="vue min" :theme="theme">
+    <RepelCover v-if="cover === 'repel'" :title="title" :theme="theme">
       <template slot="subHeader">
         <h4>a minimal ui library by colin mcneil</h4>
       </template>
@@ -73,7 +73,8 @@ export default {
         secondaryColor: '#FFF'
       },
       cover: 'stencil',
-      pickerShown: false
+      pickerShown: false,
+      title: 'vue min'
     }
   },
   methods: {
