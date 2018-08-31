@@ -22,27 +22,28 @@
       </template>
     </StencilCover>
 
-    <TestCover v-if="cover === 'test'" title="TEST" :theme="theme">
+    <PeekCover v-if="cover === 'peek'" title="vue min" :theme="theme">
       <template slot="subHeader">
         <h4>a minimal ui library by colin mcneil</h4>
       </template>
-
-      <template slot="top">
+      <template slot="topLeft">
         <h4 @click="next">Next Cover</h4>
       </template>
-
-      <template slot="right">
-        <h4 @click="tiles">View Tiles</h4>
+      <template slot="topRight">
+        <h4 @click="pickerShown=true">Select Color</h4>
       </template>
-
-      <template slot="bottom">
-        <h4 @click="color">Select Color</h4>
+    </PeekCover>
+    <RepelCover v-if="cover === 'repel'" title="vue min" :theme="theme">
+      <template slot="subHeader">
+        <h4>a minimal ui library by colin mcneil</h4>
       </template>
-
       <template slot="left">
-        <h4><a href="github.com/colinmcneil">View repo</a></h4>
+        <h4 @click="next">Next Cover</h4>
       </template>
-    </TestCover>
+      <template slot="right">
+        <h4 @click="pickerShown=true">Select Color</h4>
+      </template>
+    </RepelCover>
     <ColorPicker v-show="pickerShown" :click="()=>{pickerShown=false}" :change="setPrimary" :theme="theme"/>
     <br/>
     <ColorPicker v-show="pickerShown" :click="()=>{pickerShown=false}" :change="setSecondary" :theme="theme"/>
@@ -51,16 +52,18 @@
 
 <script>
 import StencilCover from './components/VMinCover-Stencil'
-import TestCover from './components/VMinCover-Test'
+import PeekCover from './components/VMinCover-Peek'
+import RepelCover from './components/VMinCover-Repel'
 
 import ColorPicker from './components/VMin-ColorPick.vue'
 
-const covers = ['stencil', 'test']
+const covers = ['stencil', 'peek', 'repel']
 export default {
   name: 'app',
   components: {
     StencilCover,
-    TestCover,
+    PeekCover,
+    RepelCover,
     ColorPicker
   },
   data(){
