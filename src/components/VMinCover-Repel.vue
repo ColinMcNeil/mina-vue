@@ -1,5 +1,5 @@
 <template>
-  <div class="container" @mousemove="move" ref="container"
+  <div class="container" @mousemove="move" @click="move" ref="container"
     v-bind:style="{backgroundColor: theme.secondaryColor, color: theme.primaryColor}">
     <div class="bars topBars">
       <div class="bar topBar" v-for="bar in bars" :key="bar"
@@ -135,6 +135,9 @@ export default {
   font-size: 2em;
   cursor: pointer;
 }
+@media (hover: none) { 
+  .bar {
+    opacity: 0.5;
+  }
+}
 </style>
-
-

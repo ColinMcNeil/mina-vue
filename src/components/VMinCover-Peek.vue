@@ -1,5 +1,5 @@
 <template>
-  <div class="container" @mousemove="move" ref="container"
+  <div class="container" @mousemove="move" @click="move" ref="container"
     v-bind:style="{backgroundColor: theme.primaryColor, color: theme.primaryColor}">
     <div class="cusror" :style="{left: x, top: y, maxHeight: maxHeight , backgroundColor:theme.secondaryColor}"></div>
     <div class="cover center" >
@@ -107,6 +107,9 @@ export default {
   font-size: 2em;
   cursor: pointer;
 }
+@media (hover: none) { 
+  .cusror {
+    width: 50%;
+  }
+}
 </style>
-
-
