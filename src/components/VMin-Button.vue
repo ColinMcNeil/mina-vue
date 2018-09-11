@@ -51,9 +51,14 @@ export default {
       }
       if(this.type === 'error') {
         primaryColor = secondaryColor
+        secondaryColor = 'black'
       }
       if(this.type === 'success') {
         primaryColor = secondaryColor
+        secondaryColor = 'black'
+      }
+      if(this.type === 'disabled'){
+        secondaryColor = 'black'
       }
       if(this.hovered) return primaryColor
       return secondaryColor

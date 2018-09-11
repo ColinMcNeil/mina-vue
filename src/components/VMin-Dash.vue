@@ -41,9 +41,8 @@ export default {
   height: 100%;
   left:0;
   top: 0;
-}
-.grid {
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 </style>

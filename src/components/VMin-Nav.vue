@@ -38,14 +38,18 @@ export default {
 </script>
 <style scoped>
 .container.nav {
-  position: fixed;
   width: 100%;
-  top:0;
-  left:0;
-  margin: 2em;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  box-shadow: 5px 0px 0px 0px rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
 }
 .nav{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .nav * {
   margin: 0.2em;

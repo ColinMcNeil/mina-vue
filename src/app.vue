@@ -18,7 +18,7 @@
       </template>
 
       <template slot="left">
-        <h4><a href="github.com/colinmcneil">View repo</a></h4>
+        <h4><a href="https://www.github.com/colinmcneil/mina-vue">View repo</a></h4>
       </template>
     </stencil-cover>
 
@@ -45,11 +45,11 @@
       </template>
     </repel-cover>
     <dash :theme="theme" v-if="tileShown">
-      <nav >
+      <v-min-nav>
         <v-min-button :theme="theme" :click="click">Button 1</v-min-button>
         <v-min-button :theme="theme" :click="click">Button 2</v-min-button>
         <v-min-button :theme="theme" :click="click">Button 3</v-min-button>
-        <v-min-button :theme="theme" :click="click">Close</v-min-button>
+        <v-min-button :theme="theme" type="success" :click="()=>tileShown=false"><h3>Home</h3></v-min-button>
 
         <v-min-button-group :theme="theme">
           <v-min-button :theme="theme" :click="click">Regular</v-min-button>
@@ -58,13 +58,25 @@
           <v-min-button :theme="theme" type="error" :click="click">Error</v-min-button>
         </v-min-button-group>
 
-      </nav>
+      </v-min-nav>
       <tile-grid :theme="theme">
         <tile :theme="theme" title="Card1">
-          Card 1 content
+          <ColorPicker :change="setPrimary" :theme="theme"/>
         </tile>
         <tile :theme="theme" title="Card2">
-          Card 2 content
+          <h3>Card 2 content</h3>
+        </tile>
+        <tile :theme="theme" title="Card4">
+          <h3>Card 3 content</h3>
+        </tile>
+        <tile :theme="theme" title="Card4">
+          <h3>Card 4 content</h3>
+        </tile>
+        <tile :theme="theme" title="Card5">
+          <ColorPicker :change="setPrimary" :theme="theme"/>
+        </tile>
+        <tile :theme="theme" title="Card6">
+          <h3>Card 6 content</h3>
         </tile>
       </tile-grid>
     </dash>
@@ -83,7 +95,7 @@ import RepelCover from './components/VMinCover-Repel'
 import TileGrid from './components/VMin-Tile-Grid'
 import Dash from './components/VMin-Dash'
 import Tile from './components/VMin-Tile'
-import Nav from './components/VMin-Nav'
+import VMinNav from './components/VMin-Nav'
 
 import ColorPicker from './components/VMin-ColorPick'
 import VMinButton from './components/VMin-Button'
@@ -100,7 +112,7 @@ export default {
     Tile,
     TileGrid,
     Dash,
-    Nav,
+    VMinNav,
     VMinButton,
     VMinButtonGroup
   },
@@ -113,8 +125,8 @@ export default {
       cover: 'stencil',
       pickerShown: false,
       tileShown: false,
-      title: 'vue min',
-      disabled: false,
+      title: 'mina vue',
+      disabled: true,
     }
   },
   methods: {
@@ -150,5 +162,11 @@ export default {
 a {
   color: inherit;
   text-decoration: none;
+}
+h1, h2, h3, h4 {
+  margin: 0.2em;
+}
+h3 {
+  font-size: 1.3em;
 }
 </style>
