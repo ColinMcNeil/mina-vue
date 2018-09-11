@@ -1,7 +1,8 @@
 <template>
   <div class="container" @mousemove="move" @click="move" ref="container"
-    v-bind:style="{backgroundColor: theme.primaryColor, color: theme.primaryColor}">
-    <div class="cusror" :style="{left: x, top: y, maxHeight: maxHeight , backgroundColor:theme.secondaryColor}"></div>
+    v-bind:style="{backgroundColor: primary, color: primary, 
+    textShadow: `-1px 0 ${secondary}, 0 0.5px ${secondary}, 0.5px 0 ${secondary}, 0 -0.5px ${secondary}`}">
+    <div class="cusror" :style="{left: x, top: y, maxHeight: maxHeight , backgroundColor:secondary}"></div>
     <div class="cover center" >
       <h1 class="title">{{title}}</h1>
       
@@ -50,7 +51,16 @@ export default {
       this.x = x+'px'
       
     }
-  }
+    
+  },
+  computed:{
+      primary(){
+        return this.theme.primaryColor
+      },
+      secondary(){
+        return this.theme.secondaryColor
+      }
+    }
 }
 </script>
 <style scoped>
@@ -110,6 +120,11 @@ export default {
 @media (hover: none) { 
   .cusror {
     width: 50%;
+  }
+}
+@media not all and (hover: hover){
+  .cover {
+    text-shadow: none!important;
   }
 }
 </style>

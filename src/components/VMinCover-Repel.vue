@@ -103,7 +103,6 @@ export default {
 }
 .cover {
   position: fixed;
-  margin: 1em;
 }
 .center {
   top: 50%;
@@ -134,6 +133,23 @@ export default {
   left: 0;
   font-size: 2em;
   cursor: pointer;
+}
+@media (max-width: 730px) { 
+  .right {
+    top:2em;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+  }
+  .left {
+    bottom: 2em;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 80%;
+  }
+  .bar {
+    display: none;
+  }
 }
 @media (hover: none) { 
   .bar {
