@@ -61,10 +61,8 @@ export default {
       switch(tag){
         case 'backgroundColor':
           return this.hovered===name ? this.theme.secondaryColor:this.theme.primaryColor
-          break
         case 'color':
           return this.hovered===name ? this.theme.primaryColor:this.theme.secondaryColor
-          break
       }
       
     }
@@ -128,5 +126,3 @@ export default {
   margin-left: 10%;
 }
 </style>
-
-
