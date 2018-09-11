@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <StencilCover v-if="cover === 'stencil'" :title="title" :theme="theme">
+    <stencil-cover v-if="cover === 'stencil'" :title="title" :theme="theme">
       <template slot="subTitle">
         <h4>a minimal ui library by colin mcneil</h4>
       </template>
@@ -10,7 +10,7 @@
       </template>
 
       <template slot="right">
-        <h4 @click="tiles">View Tiles</h4>
+        <h4 @click="tileShown = true">View Tiles</h4>
       </template>
 
       <template slot="bottom">
@@ -20,9 +20,9 @@
       <template slot="left">
         <h4><a href="github.com/colinmcneil">View repo</a></h4>
       </template>
-    </StencilCover>
+    </stencil-cover>
 
-    <PeekCover v-if="cover === 'peek'" :title="title" :theme="theme">
+    <peek-cover v-if="cover === 'peek'" :title="title" :theme="theme">
       <template slot="subHeader">
         <h4>a minimal ui library by colin mcneil</h4>
       </template>
@@ -32,8 +32,8 @@
       <template slot="topRight">
         <h4 @click="pickerShown=true">Select Color</h4>
       </template>
-    </PeekCover>
-    <RepelCover v-if="cover === 'repel'" :title="title" :theme="theme">
+    </peek-cover>
+    <repel-cover v-if="cover === 'repel'" :title="title" :theme="theme">
       <template slot="subHeader">
         <h4>a minimal ui library by colin mcneil</h4>
       </template>
@@ -43,7 +43,32 @@
       <template slot="right">
         <h4 @click="pickerShown=true">Select Color</h4>
       </template>
-    </RepelCover>
+    </repel-cover>
+    <dash :theme="theme" v-if="tileShown">
+      <nav >
+        <v-min-button :theme="theme" :click="click">Button 1</v-min-button>
+        <v-min-button :theme="theme" :click="click">Button 2</v-min-button>
+        <v-min-button :theme="theme" :click="click">Button 3</v-min-button>
+        <v-min-button :theme="theme" :click="click">Close</v-min-button>
+
+        <v-min-button-group :theme="theme">
+          <v-min-button :theme="theme" :click="click">Regular</v-min-button>
+          <v-min-button :theme="theme" :type= "disabled ? 'disabled':''" :click="()=>disabled=!disabled">Disabled</v-min-button>
+          <v-min-button :theme="theme" type="success" :click="click">Success</v-min-button>
+          <v-min-button :theme="theme" type="error" :click="click">Error</v-min-button>
+        </v-min-button-group>
+
+      </nav>
+      <tile-grid :theme="theme">
+        <tile :theme="theme" title="Card1">
+          Card 1 content
+        </tile>
+        <tile :theme="theme" title="Card2">
+          Card 2 content
+        </tile>
+      </tile-grid>
+    </dash>
+    
     <ColorPicker v-show="pickerShown" :click="()=>{pickerShown=false}" :change="setPrimary" :theme="theme"/>
     <br/>
     <ColorPicker v-show="pickerShown" :click="()=>{pickerShown=false}" :change="setSecondary" :theme="theme"/>
@@ -55,7 +80,14 @@ import StencilCover from './components/VMinCover-Stencil'
 import PeekCover from './components/VMinCover-Peek'
 import RepelCover from './components/VMinCover-Repel'
 
-import ColorPicker from './components/VMin-ColorPick.vue'
+import TileGrid from './components/VMin-Tile-Grid'
+import Dash from './components/VMin-Dash'
+import Tile from './components/VMin-Tile'
+import Nav from './components/VMin-Nav'
+
+import ColorPicker from './components/VMin-ColorPick'
+import VMinButton from './components/VMin-Button'
+import VMinButtonGroup from './components/VMin-Button-Group'
 
 const covers = ['stencil', 'peek', 'repel']
 export default {
@@ -64,7 +96,13 @@ export default {
     StencilCover,
     PeekCover,
     RepelCover,
-    ColorPicker
+    ColorPicker,
+    Tile,
+    TileGrid,
+    Dash,
+    Nav,
+    VMinButton,
+    VMinButtonGroup
   },
   data(){
     return {
@@ -74,7 +112,9 @@ export default {
       },
       cover: 'stencil',
       pickerShown: false,
-      title: 'vue min'
+      tileShown: false,
+      title: 'vue min',
+      disabled: false,
     }
   },
   methods: {
@@ -92,6 +132,9 @@ export default {
     setSecondary(h, s, v){
       this.theme.secondaryColor = `hsl(${h}, ${s}%, ${v}%)`
     },
+    click(){
+      console.log('click')
+    }
   }
 }
 </script>
@@ -103,7 +146,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 a {
   color: inherit;

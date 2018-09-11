@@ -54,13 +54,23 @@ export default {
     
   },
   computed:{
-      primary(){
-        return this.theme.primaryColor
-      },
-      secondary(){
-        return this.theme.secondaryColor
+    primary(){
+      if(this.$store && this.$store.state.theme){
+        return this.hovered 
+        ? this.$store.state.theme.secondaryColor 
+        : this.$store.state.theme.primaryColor
       }
-    }
+      return this.hovered ? this.theme.secondaryColor : this.theme.primaryColor
+    },
+    secondary(){
+      if(this.$store && this.$store.state.theme){
+        return this.hovered 
+        ? this.$store.state.theme.primaryColor 
+        : this.$store.state.theme.secondaryColor
+      }
+      return this.hovered ? this.theme.primaryColor : this.theme.secondaryColor
+    },
+  }
 }
 </script>
 <style scoped>
