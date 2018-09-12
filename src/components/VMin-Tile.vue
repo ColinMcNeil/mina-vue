@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-bind:style="{borderColor: theme.secondaryColor, color: secondary, backgroundColor: primary}">
+  <div class="container tile" v-bind:style="{borderColor: theme.secondaryColor, color: secondary, backgroundColor: primary}">
     <div class="titleBar" v-show="title" v-bind:style="{backgroundColor: secondary, color: primary}">
       <h2 class="title">{{title}}</h2>
       </div>
@@ -41,7 +41,7 @@ export default {
 }
 </script>
 <style scoped>
-  .container {
+  .container.tile {
     margin: 1em;
     border: solid black 1px;
   }

@@ -60,32 +60,44 @@
 
       </v-min-nav>
       <tile-grid :theme="theme">
-        <tile :theme="theme" title="Primary Color">
+        <tile key="1" :theme="theme" title="Primary Color">
           <ColorPicker :change="setPrimary" :theme="theme"/>
         </tile>
-        <tile :theme="theme" title="Card2">
-          <h3>Card 2 content</h3>
+        <tile key="2" :theme="theme" title="Breadcrumbs">
+          <div class="flex">
+            <v-min-breadcrumb :theme="theme" >Delicious</v-min-breadcrumb>
+            <transition name="fade">
+            <v-min-breadcrumb 
+            :theme="theme" :type= "disabled ? 'disabled':''" 
+            :close="()=>disabled=!disabled" v-show="disabled">
+              Nutritious
+            </v-min-breadcrumb>
+            </transition>
+            <v-min-breadcrumb :theme="theme" >Epic</v-min-breadcrumb>
+            <v-min-breadcrumb :theme="theme" >Cool.</v-min-breadcrumb>
+            <v-min-breadcrumb :theme="theme" > Wow</v-min-breadcrumb>
+          </div>
         </tile>
-        <tile :theme="theme" title="Card4">
+        <tile key="3" :theme="theme" title="Card4">
           <h3>Card 3 content</h3>
         </tile>
-        <tile :theme="theme" title="Card4">
+        <tile key="4" :theme="theme" title="Card4">
           <h3>Card 4 content</h3>
         </tile>
-        <tile :theme="theme" title="Secondary Color">
+        <tile key="5" :theme="theme" title="Secondary Color">
           <ColorPicker :change="setSecondary" :theme="theme"/>
         </tile>
-        <tile :theme="theme" title="Card6">
+        <tile key="6" v-show="disabled" :theme="theme" title="Card6">
           <h3>Card 6 content</h3>
         </tile>
-        <tile :theme="theme" title="Card6">
-          <h3>Card 6 content</h3>
+        <tile key="7" :theme="theme" title="Card7">
+          <h3>Card 7 content</h3>
         </tile>
-        <tile :theme="theme" title="Card6">
-          <h3>Card 6 content</h3>
+        <tile key="8" :theme="theme" title="Card8">
+          <h3>Card 8 content</h3>
         </tile>
-        <tile :theme="theme" title="Card6">
-          <h3>Card 6 content</h3>
+        <tile key="9" :theme="theme" title="Card9">
+          <h3>Card 9 content</h3>
         </tile>
       </tile-grid>
     </dash>
@@ -109,6 +121,7 @@ import VMinNav from './components/VMin-Nav'
 import ColorPicker from './components/VMin-ColorPick'
 import VMinButton from './components/VMin-Button'
 import VMinButtonGroup from './components/VMin-Button-Group'
+import VMinBreadcrumb from './components/VMin-Breadcrumb'
 
 const covers = ['stencil', 'peek', 'repel']
 export default {
@@ -123,7 +136,8 @@ export default {
     Dash,
     VMinNav,
     VMinButton,
-    VMinButtonGroup
+    VMinButtonGroup,
+    VMinBreadcrumb
   },
   data(){
     return {
@@ -177,5 +191,17 @@ h1, h2, h3, h4 {
 }
 h3 {
   font-size: 1.3em;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 200px;
+  padding: 0.5em;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

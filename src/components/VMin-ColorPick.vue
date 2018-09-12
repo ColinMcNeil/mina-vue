@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  <div class="container" :style="{backgroundColor: theme.primaryColor, borderColor: theme.secondaryColor}">
     <div class="closeBar" @click="click" @mouseover="hovered='close'" 
-    @mouseleave="hovered=''"
+    @mouseleave="hovered='' " v-if="click"
     :style="{backgroundColor: getCSS('close', 'backgroundColor'), 
     color: getCSS('close', 'color')}">
       {{hovered==='close'? 'Close':'X'}}
@@ -36,7 +36,7 @@
 <script>
 export default {
   props:{
-    click: {type: Function, required: false, default: ()=>{}},
+    click: {type: Function, required: false},
     change: {type: Function, required: false, default: ()=>{}},
     "theme": {
         required: false, type: Object, default: () =>({
@@ -72,7 +72,6 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 .container {
-  background-color: rgba(0,0,0,0.6);
   color: white;
   width: 300px;
   position: relative;
@@ -80,6 +79,7 @@ export default {
   flex-direction: column;
   font-family: 'Raleway';
   border-radius: 2px;
+  border: solid 1px;
 }
 .closeBar {
   height: 1.1em;

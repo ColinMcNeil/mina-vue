@@ -1,17 +1,20 @@
 <template>
-  <div class="container" @click="clickFunc" v-on:mouseover="hovered=true" 
+  <div class="container breadcrumb" @click="click || null" v-on:mouseover="hovered=true" 
   @mouseleave="hovered=false"
-  v-bind:style="{borderColor: theme.secondaryColor, color: secondary, backgroundColor: primary}">
+  v-bind:style="{color: secondary, backgroundColor: primary, borderColor: secondary}">
     <slot :theme="theme"/>
+    
+    <VMinButton :theme="theme" class="close" :click="close" v-show="close">x</VMinButton>
   </div>
 </template>
 <script>
+import VMinButton from './VMin-Button'
 export default {
-  name:"VMin-Button",
+  name:"VMin-Breadcrumb",
   props:{
-    "link":{required: false},
-    "click":{required: false},
+    "click":{required: false,},
     "type":{required: false, type: String},
+    "close":{required: false, type: Function},
     "theme": {
         required: false, type: Object, default: () =>({
           primaryColor: '#FFF', 
@@ -20,11 +23,6 @@ export default {
     },
   },
   data: () =>({hovered: false}),
-  methods:{
-    clickFunc(){
-      if(this.click)this.click()
-    }
-  },
   computed: {
     primary(){
       let primaryColor = this.theme.primaryColor;
@@ -42,11 +40,11 @@ export default {
         secondaryColor = 'rgb(49, 210, 100)'
       }
       if(this.type === 'disabled') {
-        primaryColor = 'rgb(120, 120, 120)'
-        secondaryColor = 'rgb(150, 150, 150)'
+        secondaryColor = 'rgb(120, 120, 120)'
+        primaryColor = 'rgb(150, 150, 150)'
       }
-      if(this.hovered) return secondaryColor
-      return primaryColor
+      if(this.hovered) return primaryColor
+      return secondaryColor
     },
     secondary(){
       let primaryColor = this.theme.primaryColor;
@@ -64,10 +62,11 @@ export default {
         secondaryColor = 'black'
       }
       if(this.type === 'disabled'){
-        secondaryColor = 'black'
+        secondaryColor = 'white'
+        primaryColor = 'white'
       }
-      if(this.hovered) return primaryColor
-      return secondaryColor
+      if(this.hovered) return secondaryColor
+      return primaryColor
     },
     dynamic(){
       console.log(typeof this.link)
@@ -77,21 +76,32 @@ export default {
         default:
           break
       }
-    }
+    },
+  },
+  components:{
+      VMinButton
   }
 }
 </script>
 <style scoped>
-  .container {
-    border: solid black 1px;
-    border-radius: 2px;
-    padding: 0.5em 1em 0.5em 1em;
+  .container.breadcrumb {
+    border-radius: 1px;
+    border: solid 1px;
+    padding: 0.1em 0.1em 0.1em 0.1em;
     transition: all ease 0.2s;
     cursor: default;
-    display: flex;
+    margin:0.1em;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     text-transform: lowercase;
     font-variant: small-caps;
+  }
+  .close {
+    margin-left: 0.2em;
+    background-color: rgba(0,0,0,0.2);
+    padding: 0 0.2em 0 0.2em;
+    border: none;
+    border-radius: 1px;
   }
 </style>
