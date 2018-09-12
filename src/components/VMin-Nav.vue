@@ -1,8 +1,11 @@
 <template>
-  <div class="container nav">
+  <div class="container nav" ref="nav">
+    <div class="background" :style="{backgroundColor: primary}">
+    </div>
     <div class="nav">
       <slot :theme="theme"/>
     </div>
+    
     
   </div>
 </template>
@@ -14,6 +17,11 @@ export default {
           primaryColor: '#FFF', 
           secondaryColor: '#000'
       })
+    }
+  },
+  mounted(){
+    window.document.body.onscroll = function() {
+        console.log(123);
     }
   },
   computed:{
@@ -32,7 +40,7 @@ export default {
         : this.$store.state.theme.secondaryColor
       }
       return this.hovered ? this.theme.primaryColor : this.theme.secondaryColor
-    },
+    }
   }
 }
 </script>
@@ -43,15 +51,33 @@ export default {
   left: 0;
   padding: 1em;
   box-shadow: 5px 0px 0px 0px rgba(0, 0, 0, 0.8);
-  background-color: rgba(255, 255, 255, 0.05);
   box-sizing: border-box;
+  position: sticky;
+  z-index: 100;
 }
+
 .nav{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
 }
 .nav * {
   margin: 0.2em;
+}
+.background {
+  width: 100%;
+  top: 0;
+  margin: 0;
+  left: 0;
+  height: 50%;
+  box-shadow: 5px 0px 0px 0px rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  position: absolute;
+}
+@media screen and (max-width: 400px){
+  .background {
+    height: 80%;
+  }
 }
 </style>

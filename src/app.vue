@@ -45,7 +45,7 @@
       </template>
     </repel-cover>
     <dash :theme="theme" v-if="tileShown">
-      <v-min-nav>
+      <v-min-nav :theme="theme">
         <v-min-button :theme="theme" :click="click">Button 1</v-min-button>
         <v-min-button :theme="theme" :click="click">Button 2</v-min-button>
         <v-min-button :theme="theme" :click="click">Button 3</v-min-button>
@@ -60,7 +60,7 @@
 
       </v-min-nav>
       <tile-grid :theme="theme">
-        <tile :theme="theme" title="Card1">
+        <tile :theme="theme" title="Primary Color">
           <ColorPicker :change="setPrimary" :theme="theme"/>
         </tile>
         <tile :theme="theme" title="Card2">
@@ -72,8 +72,17 @@
         <tile :theme="theme" title="Card4">
           <h3>Card 4 content</h3>
         </tile>
-        <tile :theme="theme" title="Card5">
-          <ColorPicker :change="setPrimary" :theme="theme"/>
+        <tile :theme="theme" title="Secondary Color">
+          <ColorPicker :change="setSecondary" :theme="theme"/>
+        </tile>
+        <tile :theme="theme" title="Card6">
+          <h3>Card 6 content</h3>
+        </tile>
+        <tile :theme="theme" title="Card6">
+          <h3>Card 6 content</h3>
+        </tile>
+        <tile :theme="theme" title="Card6">
+          <h3>Card 6 content</h3>
         </tile>
         <tile :theme="theme" title="Card6">
           <h3>Card 6 content</h3>
