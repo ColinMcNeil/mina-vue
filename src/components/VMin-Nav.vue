@@ -1,14 +1,13 @@
 <template>
   <div class="container nav" ref="nav">
-    <div class="background" :style="{backgroundColor: primary}">
-    </div>
+    <div class="background" :style="{backgroundColor: primary}"/>
     <div class="nav">
       <slot :theme="theme"/>
     </div>
-    
-    
   </div>
 </template>
+
+
 <script>
 export default {
   props: {
@@ -44,6 +43,8 @@ export default {
   }
 }
 </script>
+
+
 <style scoped>
 .container.nav {
   width: 100%;
@@ -64,9 +65,11 @@ export default {
   justify-content: space-between;
   position: relative;
 }
+
 .nav * {
   margin: 0.2em;
 }
+
 .background {
   width: 100%;
   top: 0;
@@ -77,6 +80,7 @@ export default {
   box-sizing: border-box;
   position: absolute;
 }
+
 @media screen and (max-width: 400px){
   .background {
     height: 80%;

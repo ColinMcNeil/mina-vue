@@ -10,7 +10,6 @@
       <div class="preview" 
       :style="{backgroundColor: `hsl(${h}, ${s}%, ${v}%)`, color: v>50 ? 'black' : 'white'}">
       HSV: {{h}}, {{s}}%, {{v}}%
-      
       </div>
       <div class="picker hue">
         <div v-for="hue in 360" :key="hue" class="bar"
@@ -33,6 +32,8 @@
     </div>
   </div>
 </template>
+
+
 <script>
 export default {
   props:{
@@ -69,8 +70,11 @@ export default {
   }
 }
 </script>
+
+
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+
 .container {
   color: white;
   width: 300px;
@@ -81,6 +85,7 @@ export default {
   border-radius: 2px;
   border: solid 1px;
 }
+
 .closeBar {
   height: 1.1em;
   width: 100%;
@@ -89,18 +94,22 @@ export default {
   transition: all ease 0.3s;
   filter: brightness(80%);
 }
+
 .closeBar:hover {
   height: 1.5em;
   filter: brightness(100%);
 }
+
 .content {
   padding: 1em;
 }
+
 .preview {
   width: 90%;
   height: 1.5em;
   font-size: 1.2em;
 }
+
 .picker {
   display: flex;
   width: 90%;
@@ -108,20 +117,25 @@ export default {
   margin-top: 1em;
   border-radius: 2px;
 }
+
 .bar {
   width: .29%;
 }
+
 .bar.cent {
   width: 1%;
 }
+
 .bar:hover {
   flex: 2 2 1em;
   border-right: solid black 1px;
   border-left: solid black 1px;
 }
+
 .hue{
   margin-left: 10%;
 }
+
 .value {
   margin-left: 10%;
 }

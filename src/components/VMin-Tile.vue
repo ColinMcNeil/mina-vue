@@ -1,11 +1,15 @@
 <template>
   <div class="container tile" v-bind:style="{borderColor: theme.secondaryColor, color: secondary, backgroundColor: primary}">
+    
     <div class="titleBar" v-show="title" v-bind:style="{backgroundColor: secondary, color: primary}">
       <h2 class="title">{{title}}</h2>
-      </div>
+    </div>
+
     <slot class="content"/>
   </div>
 </template>
+
+
 <script>
 export default {
   props: {
@@ -37,21 +41,19 @@ export default {
       return this.hovered ? this.theme.primaryColor : this.theme.secondaryColor
     },
   }
-  
 }
 </script>
+
+
 <style scoped>
   .container.tile {
     margin: 1em;
     border: solid black 1px;
   }
-  .titleBar {
 
-  }
   .title {
     margin: 0;
     text-transform: uppercase;
     font-weight: lighter;
   }
-
 </style>

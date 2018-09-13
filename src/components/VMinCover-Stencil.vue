@@ -3,24 +3,27 @@
     v-bind:style="{backgroundColor: theme.primaryColor, color: theme.secondaryColor}">
     <div class="cover" v-bind:style= "{width: maxWidth}" >
       <h1 class="title">{{title}}</h1>
-      
       <slot name="subTitle" class="subTitle"></slot>
     </div>
+
     <div class="side horizontal top">
       <hr :style="{width:randomWidths[0]}"/>
       <slot name="top"></slot>
       <hr :style="{width:randomWidths[0]}"/>
     </div>
+
     <div class="side vertical right">
       <hr :style="{width:randomWidths[1]}"/>
       <slot name="right"></slot>
       <hr :style="{width:randomWidths[1]}"/>
     </div>
+
     <div class="side horizontal bottom">
       <hr :style="{width:randomWidths[2]}"/>
       <slot name="bottom"></slot>
       <hr :style="{width:randomWidths[2]}"/>
     </div>
+    
     <div class="side vertical left">
       <hr :style="{width:randomWidths[3]}"/>
       <slot name="left"></slot>
@@ -29,6 +32,8 @@
     
   </div>
 </template>
+
+
 <script>
 export default {
   name: "StencilCover",
@@ -57,11 +62,10 @@ export default {
   }
 }
 </script>
+
+
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Raleway');
-.container {
-  
-}
 .container {
   font-family: "Raleway";
   background-color: black;
@@ -72,18 +76,20 @@ export default {
   left:0;
   color: white;
 }
+
 .cover {
   top: 10%;
   left: 10%;
   position: fixed;
 }
+
 hr {
   margin:1em;
   padding: 0;
-  /* border: none; */
   color: white;
   transition: all 0.3s ease;
 }
+
 .title {
   word-break: break-all;
   font-size: 9em;
@@ -91,10 +97,12 @@ hr {
   font-variant: small-caps;
   line-height: 0.7em;
 }
+
 .subTitle {
   margin: 0;
   margin-top: 1em;
 }
+
 .side {
   position: fixed;
   font-size: 2em;
@@ -102,43 +110,51 @@ hr {
   justify-content: center;
   align-items: center;
   width: 50%;
-  
   height: 1em;
   transition: ease all 0.3s;
 }
+
 .side:hover {
   cursor: pointer;
 }
+
 .side:hover hr {
   width: 5em;
   margin:1.2em 0.3em 1.2em 0.3em;
   color: white;
 }
+
 .horizontal {
   width: 100%;
 }
+
 .vertical {
   width: 20em;
   top:0;
   font-size: 1.5em;
 }
+
 .top {
   top:0.5em;
 }
+
 .right {
   transform: rotate(90deg) translate(70%, 5%);
   transform-origin: right;
   right: 1em;
   top: 50%;
 }
+
 .bottom {
   bottom: 0.5em;
 }
+
 .left {
   transform: rotate(270deg) translate(-30%, 60%);
   transform-origin: left;
   top: 40%;
 }
+
 @media (max-width: 500px){
   .cover {
     top: 50%;
@@ -146,5 +162,4 @@ hr {
     transform: translate(-50%, -50%);
   }
 }
-
 </style>

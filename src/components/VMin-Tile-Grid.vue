@@ -1,6 +1,5 @@
 <template>
   <div class="container tileGrid">
-
     <slot class="grid"/>
   </div>
 </template>

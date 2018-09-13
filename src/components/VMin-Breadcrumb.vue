@@ -1,14 +1,20 @@
 <template>
   <div class="container breadcrumb" @click="click || null" v-on:mouseover="hovered=true" 
   @mouseleave="hovered=false"
-  v-bind:style="{color: secondary, backgroundColor: primary, borderColor: secondary}">
+  v-bind:style="{
+    color: secondary, 
+    backgroundColor: primary, 
+    borderColor: secondary}
+  ">
     <slot :theme="theme"/>
-    
     <VMinButton :theme="theme" class="close" :click="close" v-show="close">x</VMinButton>
   </div>
 </template>
+
+
 <script>
 import VMinButton from './VMin-Button'
+
 export default {
   name:"VMin-Breadcrumb",
   props:{
@@ -22,7 +28,7 @@ export default {
       }),
     },
   },
-  data: () =>({hovered: false}),
+  data: () => ( {hovered: false} ),
   computed: {
     primary(){
       let primaryColor = this.theme.primaryColor;
@@ -61,14 +67,14 @@ export default {
         primaryColor = secondaryColor
         secondaryColor = 'black'
       }
-      if(this.type === 'disabled'){
+      if(this.type === 'disabled') {
         secondaryColor = 'white'
         primaryColor = 'white'
       }
       if(this.hovered) return secondaryColor
       return primaryColor
     },
-    dynamic(){
+    dynamic() {
       console.log(typeof this.link)
       switch(typeof this.link){
         case 'string':
@@ -78,11 +84,13 @@ export default {
       }
     },
   },
-  components:{
+  components: {
       VMinButton
   }
 }
 </script>
+
+
 <style scoped>
   .container.breadcrumb {
     border-radius: 1px;
@@ -97,6 +105,7 @@ export default {
     text-transform: lowercase;
     font-variant: small-caps;
   }
+  
   .close {
     margin-left: 0.2em;
     background-color: rgba(0,0,0,0.2);

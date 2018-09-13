@@ -3,6 +3,8 @@
     <slot :theme="theme" class="grid"/>
   </div>
 </template>
+
+
 <script>
 export default {
   props: {
@@ -33,6 +35,7 @@ export default {
   }
 }
 </script>
+
 
 <style scoped>
 .dash.container {

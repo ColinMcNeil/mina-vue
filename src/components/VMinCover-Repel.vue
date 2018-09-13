@@ -4,32 +4,32 @@
     <div class="bars topBars">
       <div class="bar topBar" v-for="bar in bars" :key="bar"
       :style="{ backgroundColor:theme.primaryColor, maxHeight: getHeight(bar)}">
-
       </div>
     </div>
 
     <div class="bars bottomBars">
       <div class="bar bottomBar" v-for="bar in bars" :key="bar"
       :style="{ backgroundColor:theme.primaryColor, maxHeight: getHeight(bar)}">
-
       </div>
     </div>
     
     <div class="cover center" >
       <h1 class="title">{{title}}</h1>
-      
       <slot name="subTitle" class="subTitle"></slot>
     </div>
+
     <div class="cover left" >
       <slot name="left"></slot>
     </div>
+
     <div class="cover right" >
       <slot name="right"></slot>
     </div>
     
-    
   </div>
 </template>
+
+
 <script>
 export default {
   name: "Cover",
@@ -60,16 +60,18 @@ export default {
       let width = this.$refs.container.clientWidth
       let barWidth = width/this.bars
       this.selectedBar = Math.ceil(this.x/barWidth)
-      
     }
   }
 }
 </script>
+
+
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 .bars {
   display: flex;
 }
+
 .topBars {
   top: 0;
   width: 100%;
@@ -83,15 +85,18 @@ export default {
   position: fixed;
   align-items: flex-end;
 }
+
 .bar {
   max-height: 100%;
   height: 100%;
   width: 100%;
   transition: max-height ease 0.1s;
 }
+
 .bottomBar {
   bottom: 0;
 }
+
 .container {
   font-family: "Raleway";
   background-color: black;
@@ -101,14 +106,17 @@ export default {
   top:0;
   left:0;
 }
+
 .cover {
   position: fixed;
 }
+
 .center {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .title {
   font-size: 9em;
   margin: 0;
@@ -116,10 +124,12 @@ export default {
   font-variant: small-caps;
   line-height: 0.7em;
 }
+
 .subTitle {
   margin: 0;
   margin-top: 1em;
 }
+
 .right {
   top:50%;
   right: 0;
@@ -127,6 +137,7 @@ export default {
   cursor: pointer;
   transform: translateY(-50%);
 }
+
 .left {
   top: 50%;
   transform: translateY(-50%);
@@ -134,6 +145,7 @@ export default {
   font-size: 2em;
   cursor: pointer;
 }
+
 @media (max-width: 730px) { 
   .right {
     top:2em;
@@ -141,12 +153,14 @@ export default {
     right: auto;
     transform: translate(-50%, -50%);
   }
+
   .left {
     bottom: 2em;
     transform: translate(-50%, -50%);
     left: 50%;
     top: 80%;
   }
+  
   .bar {
     display: none;
   }

@@ -5,6 +5,8 @@
     <slot :theme="theme"/>
   </button>
 </template>
+
+
 <script>
 export default {
   name:"VMin-Button",
@@ -81,6 +83,8 @@ export default {
   }
 }
 </script>
+
+
 <style scoped>
   .container.button {
     outline: none;

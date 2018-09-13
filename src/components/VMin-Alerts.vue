@@ -11,6 +11,8 @@
     </transition-group>
   </div>
 </template>
+
+
 <script>
 import VMinButton from './VMin-Button'
 export default {
@@ -86,6 +88,8 @@ export default {
   }
 }
 </script>
+
+
 <style scoped>
   .alertsInner {
     position: fixed;
@@ -96,6 +100,7 @@ export default {
     display: flex;
     flex-direction: column;
   }
+
   .close {
     margin-left: 0.2em;
     background-color: rgba(0,0,0,0.2);
@@ -103,6 +108,7 @@ export default {
     border: none;
     border-radius: 1px;
   }
+
   .alert {
     display: flex;
     width: 100%;
@@ -113,6 +119,7 @@ export default {
     align-items: center;
     cursor: default;
   }
+
   .alert .container.button {
     border-radius: 0;
     padding: 0.4em;
@@ -120,17 +127,21 @@ export default {
     height: 100%;
     width: 4em;
   }
+
   .alertFade-move {
     transition: transform 0.3s;
   }
+
   .alertFade-enter-active, .alertFade-leave-active {
     transition: all 0.3s;
     
   }
+
   .alertFade-enter, .alertFade-leave-to /* .list-leave-active below version 2.1.8 */ {
     opacity: 0;
     transform: translateY(10px);
   }
+  
   .alertFade-leave-active {
     position: absolute;    
   }

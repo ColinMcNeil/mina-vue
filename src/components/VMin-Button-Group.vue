@@ -5,6 +5,8 @@
     <slot :theme="theme"/>
   </div>
 </template>
+
+
 <script>
 export default {
   props: {
@@ -35,12 +37,16 @@ export default {
   }
 }
 </script>
+
+
 <style scoped>
 .container.buttonGroup {
   display: flex;
   border: solid black 1px;
   border-radius: 2px;
 }
+
+
 .container.buttonGroup *{
   border: none;
   border-radius: 0px;
