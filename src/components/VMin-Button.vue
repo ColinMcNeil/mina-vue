@@ -1,9 +1,9 @@
 <template>
-  <div class="container" @click="clickFunc" v-on:mouseover="hovered=true" 
+  <button class="container button" @click="clickFunc" v-on:mouseover="hovered=true" 
   @mouseleave="hovered=false"
   v-bind:style="{borderColor: theme.secondaryColor, color: secondary, backgroundColor: primary}">
     <slot :theme="theme"/>
-  </div>
+  </button>
 </template>
 <script>
 export default {
@@ -82,7 +82,8 @@ export default {
 }
 </script>
 <style scoped>
-  .container {
+  .container.button {
+    outline: none;
     border: solid black 1px;
     border-radius: 2px;
     padding: 0.5em 1em 0.5em 1em;

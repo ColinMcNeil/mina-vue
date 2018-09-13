@@ -78,8 +78,10 @@
             <v-min-breadcrumb :theme="theme" > Wow</v-min-breadcrumb>
           </div>
         </tile>
-        <tile key="3" :theme="theme" title="Card4">
-          <h3>Card 3 content</h3>
+        <tile key="3" :theme="theme" title="Alerts">
+          <div class="padded">
+            <v-min-button :theme="theme" :click="()=>alerts.push(`Alert${alertCount+=1}`)">Alert!</v-min-button>
+          </div>
         </tile>
         <tile key="4" :theme="theme" title="Card4">
           <h3>Card 4 content</h3>
@@ -100,11 +102,13 @@
           <h3>Card 9 content</h3>
         </tile>
       </tile-grid>
+      <vmin-alerts :theme="theme" :alerts="alerts"/>
     </dash>
     
     <ColorPicker v-show="pickerShown" :click="()=>{pickerShown=false}" :change="setPrimary" :theme="theme"/>
     <br/>
     <ColorPicker v-show="pickerShown" :click="()=>{pickerShown=false}" :change="setSecondary" :theme="theme"/>
+    
   </div>
 </template>
 
@@ -122,6 +126,7 @@ import ColorPicker from './components/VMin-ColorPick'
 import VMinButton from './components/VMin-Button'
 import VMinButtonGroup from './components/VMin-Button-Group'
 import VMinBreadcrumb from './components/VMin-Breadcrumb'
+import VminAlerts from './components/VMin-Alerts'
 
 const covers = ['stencil', 'peek', 'repel']
 export default {
@@ -137,7 +142,8 @@ export default {
     VMinNav,
     VMinButton,
     VMinButtonGroup,
-    VMinBreadcrumb
+    VMinBreadcrumb,
+    VminAlerts
   },
   data(){
     return {
@@ -150,6 +156,8 @@ export default {
       tileShown: false,
       title: 'mina vue',
       disabled: true,
+      alerts: [],
+      alertCount: 0
     }
   },
   methods: {
@@ -197,6 +205,9 @@ h3 {
   flex-wrap: wrap;
   max-width: 200px;
   padding: 0.5em;
+}
+.padded {
+  padding: 1em;
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .2s;

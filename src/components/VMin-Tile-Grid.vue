@@ -10,8 +10,11 @@
   padding: 1em;
   display: flex;
   flex-wrap: wrap;
+  padding: 0 20%;
+  justify-content: center;
 }
-.grid {
-  
+.tileGrid .container.tile {
+  margin-bottom: 3em;
+  flex-basis: 25%;
 }
 </style>

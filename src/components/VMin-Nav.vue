@@ -54,12 +54,14 @@ export default {
   box-sizing: border-box;
   position: sticky;
   z-index: 100;
+  display: flex;
+  justify-content: center;
 }
 
 .nav{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   position: relative;
 }
 .nav * {
