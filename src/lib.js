@@ -11,7 +11,7 @@ import VMinButtonGroup from './components/VMin-Button-Group'
 import VMinBreadcrumb from './components/VMin-Breadcrumb'
 import VMinAlerts from './components/VMin-Alerts'
 
-export default {
+export {
   VMinCoverStencil,
   VMinCoverRepel,
   VMinCoverPeek,
