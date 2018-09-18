@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name:"VMin-Tile",
   props: {
     "theme": {
         required: false, type: Object, default: () =>({

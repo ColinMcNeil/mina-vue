@@ -1,6 +1,6 @@
 {
   "name": "mina-vue",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Vue.js project",
   "author": "Colin McNeil <colinmcneil@gmail.com>",
   "main": "dist/lib/mina-vue.min.js",

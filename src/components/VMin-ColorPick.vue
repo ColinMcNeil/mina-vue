@@ -36,6 +36,7 @@
 
 <script>
 export default {
+  name:"VMin-ColorPick",
   props:{
     click: {type: Function, required: false},
     change: {type: Function, required: false, default: ()=>{}},

@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name:"VMin-Button-Group",
   props: {
     "theme": {
         required: false, type: Object, default: () =>({

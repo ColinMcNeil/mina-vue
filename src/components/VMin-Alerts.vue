@@ -16,7 +16,7 @@
 <script>
 import VMinButton from './VMin-Button'
 export default {
-  name:"VMin-Alert",
+  name:"VMin-Alerts",
   props:{
     "alerts":{required: false, default: ()=>[]},
     "type":{required: false, type: String},

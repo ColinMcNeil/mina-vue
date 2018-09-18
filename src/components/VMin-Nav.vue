@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name:"VMin-Nav",
   props: {
     "theme": {
         required: false, type: Object, default: () =>({

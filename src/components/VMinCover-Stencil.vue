@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: "StencilCover",
+  name:"VMin-Cover-Stencil",
   props:{
     "title": {required: false, type: String},
     "theme": {required: false, type: Object, default: () =>({

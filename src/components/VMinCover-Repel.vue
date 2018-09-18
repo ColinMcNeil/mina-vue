@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: "Cover",
+  name:"VMin-Cover-Repel",
   props:{
     "title": {required: false, type: String},
     "theme": {required: false, type: Object, default: () =>({

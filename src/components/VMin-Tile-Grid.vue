@@ -3,6 +3,12 @@
     <slot class="grid"/>
   </div>
 </template>
+<script>
+export default {
+  name:"VMin-Tile-Grid"
+}
+</script>
+
 <style scoped>
 .tileGrid {
   margin-top: 1em;

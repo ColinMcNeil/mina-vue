@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: "Cover",
+  name:"VMin-Cover-Peek",
   props:{
     "title": {required: false, type: String},
     "theme": {required: false, type: Object, default: () =>({

@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name:"VMin-Dash",
   props: {
     "theme": {
         required: false, type: Object, default: () =>({
